@@ -31,6 +31,12 @@
     return self;
 }
 
+- (WKWebView *)webView:(WKWebView *)webView createWebViewWithConfiguration:(WKWebViewConfiguration *)configuration forNavigationAction:(WKNavigationAction *)navigationAction windowFeatures:(WKWindowFeatures *)windowFeatures {
+    [[UIApplication sharedApplication] openURL:navigationAction.request.URL];
+
+    return nil;
+}
+
 - (void)     webView:(WKWebView*)webView runJavaScriptAlertPanelWithMessage:(NSString*)message
     initiatedByFrame:(WKFrameInfo*)frame completionHandler:(void (^)(void))completionHandler
 {
